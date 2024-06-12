@@ -27,11 +27,12 @@ class ViewControllerUsuario: UIViewController {
         
         // Actualizar los datos del usuario
         let nuevosDatos: [String: Any] = ["id": usuario.id,
-                                          "nombre": usuario.nombre,
-                                          "clave": nuevaContraseña,
-                                          "email": usuario.email]
+                                          "nombre": txtUsuario.text!,
+                                          "clave": txtContrasena.text!,
+                                          "email": txtEmail.text!]
         
         metodoPUT(ruta: "http://localhost:3000/usuarios/\(usuario.id)", datos: nuevosDatos)
+        navigationController?.popViewController(animated: true)
     }
     
     // Función para realizar la solicitud a la API y obtener los datos del usuario
@@ -71,34 +72,31 @@ class ViewControllerUsuario: UIViewController {
     
     // Función para realizar una solicitud PUT al servidor
     func metodoPUT(ruta: String, datos: [String:Any]) {
-        let url : URL = URL(string: ruta)!
-        var request = URLRequest(url: url)
-        let session = URLSession.shared
-        request.httpMethod = "PUT"
         
-        let params = datos
-        
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: params, options: JSONSerialization.WritingOptions.prettyPrinted)
-        } catch {
-            print("Error al serializar datos: \(error)")
-        }
-        
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        let task = session.dataTask(with: request) { data, response, error in
-            if let data = data {
-                do {
-                    let dict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-                    print("Respuesta del servidor: \(dict ?? [:])")
-                } catch {
-                    print("Error al parsear respuesta del servidor: \(error)")
-                }
-            } else if let error = error {
-                print("Error de red: \(error)")
+            let url : URL = URL(string: ruta)!
+            var request = URLRequest(url: url)
+            let session = URLSession.shared
+            request.httpMethod = "PUT"
+            
+            let params = datos
+            
+            do {
+                request.httpBody = try JSONSerialization.data(withJSONObject: params, options: JSONSerialization.WritingOptions.prettyPrinted)
+            } catch {
+                print("FALLO EN AGREGAR")
             }
-        }
-        task.resume()
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            let task = session.dataTask(with: request) { data, response, error in
+                if (data != nil){
+                    do {
+                        let dict = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableLeaves)
+                        print("DICCIONARIO AGREGADOR: \(dict) ERROR: \(error)")
+                    } catch {
+                        print("ERROR AL GENERAR DICCIONARIO: \(error)")
+                    }
+                }
+            }
+            task.resume()
     }
 }
