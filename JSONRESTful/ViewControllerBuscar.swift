@@ -6,12 +6,19 @@ class ViewControllerBuscar: UIViewController, UITableViewDelegate, UITableViewDa
         return peliculas.count
     }
     
+    var nombreUsuario:String?
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = "\(peliculas[indexPath.row].nombre)"
         cell.detailTextLabel?.text = "Genero:\(peliculas[indexPath.row].genero)Duracion:\(peliculas[indexPath.row].duracion)"
         return cell
     }
+    
+    @IBAction func btnUsuario(_ sender: Any) {
+        performSegue(withIdentifier: "segueUsuario", sender: self)
+    }
+    
     
     
     var peliculas = [Peliculas]()
@@ -29,6 +36,8 @@ class ViewControllerBuscar: UIViewController, UITableViewDelegate, UITableViewDa
         cargarPeliculas(ruta: ruta) {
             self.tablaPeliculas.reloadData()
         }
+        
+        print("LLEG ESTO SIIIIII: \(nombreUsuario!)")
 
         // Do any additional setup after loading the view.
     }
@@ -96,9 +105,13 @@ class ViewControllerBuscar: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let textoID = nombreUsuario!
         if segue.identifier == "segueEditar"{
             let siguienteVC = segue.destination as! ViewControllerAgregar
             siguienteVC.pelicula = sender as? Peliculas
+        } else if segue.identifier == "segueUsuario" {
+            let usuarioVC = segue.destination as! ViewControllerUsuario
+            usuarioVC.nombreUsuario2 = textoID
         }
     }
     

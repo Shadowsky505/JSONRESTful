@@ -22,7 +22,8 @@ class ViewController: UIViewController {
                 print("Nombre de Usuario o Contraseña Incorrecto")
             } else {
                 print("logeo Existoso")
-                self.performSegue(withIdentifier: "segueLogeo", sender: self.users.first)
+                
+                self.performSegue(withIdentifier: "segueLogeo", sender: self)
             }
         }
     }
@@ -49,10 +50,13 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueLogeo" {
-            if let viewControllerBuscar = segue.destination as? ViewControllerBuscar {
-                viewControllerBuscar.usuario = sender as? Users
-            }
+        let usuarioTexto = txtUsuario.text!
+        print("GAA:: \(usuarioTexto)")
+        
+            if let destinoVC = segue.destination as? ByPassController{
+                print("GAAA2222: \(usuarioTexto)")
+                destinoVC.nombreUsuario = usuarioTexto
+            
         }
     }
 }

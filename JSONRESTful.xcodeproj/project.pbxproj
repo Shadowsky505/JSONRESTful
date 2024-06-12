@@ -14,6 +14,7 @@
 		F35F391C2C17B15D005BC389 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F35F391B2C17B15D005BC389 /* Assets.xcassets */; };
 		F35F391F2C17B15D005BC389 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F35F391D2C17B15D005BC389 /* LaunchScreen.storyboard */; };
 		F35F39272C17B4C4005BC389 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F39262C17B4C4005BC389 /* Users.swift */; };
+		F363D6CF2C1A4975008343F2 /* ByPassController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F363D6CE2C1A4975008343F2 /* ByPassController.swift */; };
 		F3AD2CDD2C19FDE9004C6F24 /* Peliculas.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AD2CDC2C19FDE9004C6F24 /* Peliculas.swift */; };
 		F3AD2CE12C1A0AA5004C6F24 /* ViewControllerAgregar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AD2CE02C1A0AA5004C6F24 /* ViewControllerAgregar.swift */; };
 		F3AD2CE32C1A101A004C6F24 /* ViewControllerBuscar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AD2CE22C1A101A004C6F24 /* ViewControllerBuscar.swift */; };
@@ -30,6 +31,7 @@
 		F35F391E2C17B15D005BC389 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F35F39202C17B15D005BC389 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F35F39262C17B4C4005BC389 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		F363D6CE2C1A4975008343F2 /* ByPassController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByPassController.swift; sourceTree = "<group>"; };
 		F3AD2CDC2C19FDE9004C6F24 /* Peliculas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peliculas.swift; sourceTree = "<group>"; };
 		F3AD2CE02C1A0AA5004C6F24 /* ViewControllerAgregar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAgregar.swift; sourceTree = "<group>"; };
 		F3AD2CE22C1A101A004C6F24 /* ViewControllerBuscar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerBuscar.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				F3AD2CE42C1A18CE004C6F24 /* ViewControllerUsuario.swift */,
 				F3AD2CE22C1A101A004C6F24 /* ViewControllerBuscar.swift */,
 				F35F39182C17B15D005BC389 /* Main.storyboard */,
+				F363D6CE2C1A4975008343F2 /* ByPassController.swift */,
 				F3AD2CE02C1A0AA5004C6F24 /* ViewControllerAgregar.swift */,
 				F35F391B2C17B15D005BC389 /* Assets.xcassets */,
 				F35F391D2C17B15D005BC389 /* LaunchScreen.storyboard */,
@@ -163,6 +166,7 @@
 			files = (
 				F3AD2CDD2C19FDE9004C6F24 /* Peliculas.swift in Sources */,
 				F35F39272C17B4C4005BC389 /* Users.swift in Sources */,
+				F363D6CF2C1A4975008343F2 /* ByPassController.swift in Sources */,
 				F3AD2CE12C1A0AA5004C6F24 /* ViewControllerAgregar.swift in Sources */,
 				F3AD2CE32C1A101A004C6F24 /* ViewControllerBuscar.swift in Sources */,
 				F35F39172C17B15D005BC389 /* ViewController.swift in Sources */,
